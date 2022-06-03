@@ -1,0 +1,10 @@
+AddHandler application/x-httpd-php5 .php
+RewriteEngine On
+RewriteCond %{HTTPS} !=on
+RewriteRule ^ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
+
+RewriteRule ^signup$ /signup.php
+RewriteRule ^([A-Za-z0-9_-]+)$ /index.php?page=$1
+RewriteRule ^([A-Za-z0-9_-]+),([A-Za-z0-9_-]+)$ /index.php?page=$1&id=$2
+RewriteRule ^([A-Za-z0-9_-]+),([A-Za-z0-9_-]+),([A-Za-z0-9_-]+)$ /index.php?page=$1&action=$2&id=$3
+RewriteRule ^([A-Za-z0-9_-]+),([A-Za-z0-9_-]+),([A-Za-z0-9_-]+),([A-Za-z0-9_-]+)$ /index.php?page=$1&action=$2&id=$3&delete_id=$4
